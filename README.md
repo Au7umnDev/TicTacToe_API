@@ -25,6 +25,7 @@ REST API для игры в крестики-нолики. Endpoints:
 2. Откройте TicTacToe_API.sln в Visual Studio.
 3. Build > Build Solution.
 4. Debug > Start Debugging, или просто нажмите F5.
+5. Если при выполнении запросов API выдает ошибку, связанную с подключением к БД: Tools > NuGet Package Manager > Package Manager Console > Напишите "update-database".
 
 Стоит отметить, что в данном решении поддерживается Swagger, который позволит самостоятельно опробовать запросы.
 
