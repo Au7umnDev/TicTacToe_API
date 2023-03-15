@@ -1,6 +1,6 @@
 # TicTacToe API
 
-Это RESTful API для игры в крестики-нолики. Endpoints:
+RESTful API для игры в крестики-нолики. Endpoints:
 
 * GET api/games: Получить список всех игр.
 * GET api/games/{id}: Получить информацию о конкретной игре по ее id.
@@ -17,10 +17,10 @@
 
 Чтобы установить и запустить API, необходимо сделать следующее:
 
-Скопируйте репозиторий на свой ПК.
-Откройте TicTacToe_API.sln в Visual Studio.
-Build > Build Solution.
-Debug > Start Debugging, или просто нажмите F5.
+1. Скопируйте репозиторий на свой ПК.
+2. Откройте TicTacToe_API.sln в Visual Studio.
+3. Build > Build Solution.
+4. Debug > Start Debugging, или просто нажмите F5.
 
 Стоит отметить, что в данном решении поддерживается Swagger, который позволит самостоятельно опробовать запросы.
 
@@ -32,11 +32,11 @@ Debug > Start Debugging, или просто нажмите F5.
 
 Example Request:
 
-GET https://localhost:5001/api/games
+`GET https://localhost:5001/api/games`
 
 Example Response:
 
-[
+```[
   {
     "id": 24,
     "player1Id": "A",
@@ -54,6 +54,7 @@ Example Response:
     "isDraw": false
   }
 ]
+```
 
 ### GET api/games/{id}
 
@@ -61,10 +62,11 @@ Example Response:
 
 Example Request:
 
-GET https://localhost:5001/api/games/25
+`GET https://localhost:5001/api/games/25`
 
 Example Response:
 
+```
 {
   "id": 25,
   "player1Id": "A",
@@ -73,6 +75,7 @@ Example Response:
   "winnerId": "A",
   "isDraw": false
 }
+```
 
 ### POST api/games
 
@@ -80,17 +83,20 @@ Example Response:
 
 Example Request:
 
-POST https://localhost:5001/api/games
+` POST https://localhost:5001/api/games `
 
 Content-Type: application/json
 
+```
 {
     "player1Id": "player1",
     "player2Id": "player2"
 }
+```
 
 Example Response
 
+```
 {
   "id": 26,
   "player1Id": "player1",
@@ -99,6 +105,7 @@ Example Response
   "winnerId": null,
   "isDraw": false
 }
+```
 
 ### PUT api/games/{id}
 
@@ -106,18 +113,90 @@ Example Response
 
 Example Request
 
-PUT https://localhost:5001/api/games/26
+`PUT https://localhost:5001/api/games/26`
 
 Content-Type: application/json
 
+```
 {
     "player": "player1",
     "row": 1,
     "column": 1
 }
+```
 
 Example Response
 
-Made a move!
+`Made a move!`
+
+### GET api/games/{gameId}/Moves
+
+Возвращает все ходы в конкретной игре по ее id.
+
+Example Request
+
+`GET https://localhost:5001/api/games/25/Moves`
+
+Example Response
+
+```
+[
+  {
+    "id": 90,
+    "gameId": 25,
+    "row": 0,
+    "column": 0,
+    "player": "A"
+  },
+  {
+    "id": 91,
+    "gameId": 25,
+    "row": 1,
+    "column": 0,
+    "player": "V"
+  },
+  {
+    "id": 92,
+    "gameId": 25,
+    "row": 0,
+    "column": 1,
+    "player": "A"
+  },
+  {
+    "id": 93,
+    "gameId": 25,
+    "row": 1,
+    "column": 1,
+    "player": "V"
+  },
+  {
+    "id": 94,
+    "gameId": 25,
+    "row": 0,
+    "column": 2,
+    "player": "A"
+  }
+]
+```
+
+### GET api/games/{gameId}/Moves/{id}
+
+Возвращает конкретный ход в конкретной игре по id игры и id хода.
+
+Example Request
+
+`GET https://localhost:5001/api/games/25/Moves/94`
+
+Example Response
+
+```
+{
+  "id": 94,
+  "gameId": 25,
+  "row": 0,
+  "column": 2,
+  "player": "A"
+}
+```
 
 ## Разработано с помощью [ASP.NET Core 6.0](https://dotnet.microsoft.com)
