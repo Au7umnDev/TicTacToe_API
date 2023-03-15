@@ -1,6 +1,6 @@
 # TicTacToe API
 
-RESTful API для игры в крестики-нолики. Endpoints:
+REST API для игры в крестики-нолики. Endpoints:
 
 * GET api/games: Получить список всех игр.
 * GET api/games/{id}: Получить информацию о конкретной игре по ее id.
@@ -12,6 +12,8 @@ RESTful API для игры в крестики-нолики. Endpoints:
 
 * ASP.NET Core 6.0 SDK
 * Visual Studio 2022
+* SQL Server 2022
+* SQL Server Management Studio 2019 (Optional)
 
 ## Установка
 
@@ -198,5 +200,11 @@ Example Response
   "player": "A"
 }
 ```
+## Принцип работы:
 
-## Разработано с помощью [ASP.NET Core 6.0](https://dotnet.microsoft.com)
+Игроки могут создавать игры и, соответственно, ходить в них. Последовательность ходов реализована с помощью поля currentTurn, в который записывается имя игрока, который должен ходить. Каждый ход игра проверяет, появился ли победитель, или же игра закончилась ничьей. В качестве БД используется MS SQL.
+
+## Разработано с помощью:
+
+* [ASP.NET Core 6.0](https://dotnet.microsoft.com)
+* [SQL Server 2022 + SQL SMS 19](https://learn.microsoft.com/en-us/sql/ssms/sql-server-management-studio-ssms?view=sql-server-ver16)
