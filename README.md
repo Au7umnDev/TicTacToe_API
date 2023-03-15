@@ -13,7 +13,7 @@ REST API для игры в крестики-нолики. Endpoints:
 * ASP.NET Core 6.0 SDK
 * Visual Studio 2022
 * SQL Server 2022
-* SQL Server Management Studio 2019 (Optional)
+* SQL Server Management Studio 2019
 
 ## Установка
 
